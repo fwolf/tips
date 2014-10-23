@@ -1,0 +1,24 @@
+%
+autofs - 自动挂载工具。
+%
+balsa - 支持 maildir 的图形化客户端
+%
+cloc - 代码行数统计工具，识别注释和空行
+%
+Figlet - 将字符串 Ascii 图形化
+    $ find /usr/share/figlet/ -name *.flf | xargs -I '{}' bash -c "T='{}'; T=\${T##*/}; T=\${T%%.*}; figlet Fwolf -f \${T}" | less
+%
+Gwenview - Kde 中查看 Gif 动画的工具。
+%
+iptraf - 监控网络流量。
+%
+mtr - 整和了 ping 和 traceroute 的网络诊断工具。
+%
+ncdu - 查看文件空间占用的实用小工具。
+%
+NetHogs - 监控每个进程的网络带宽占用情况。
+%
+retext - reStructuredText 可视化编写工具。
+%
+ttyload - 终端下用彩色字符组成图表显示系统负载情况。
+%

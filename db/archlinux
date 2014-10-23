@@ -1,0 +1,7 @@
+%
+pkglist 的生成，导出系统上安装的所有非本地（即从官方仓库获取的）软件包列表：
+$ comm -23 <(pacman -Qeq|sort) <(pacman -Qmq|sort) > pkglist.txt
+%
+pkglist 的使用，使用如下命令安装所有软件包：
+# pacman -S $(< pkglist.txt)
+%

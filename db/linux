@@ -1,0 +1,68 @@
+%
+Apt 导入外部源的 key：
+    # apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 985E0E11
+%
+Firefox 删除所有暂存的 favicon：
+    $ sed -r -i 's/ICON="[^\"]+" //g' bookmarks.html
+	$ sqlite3 places.sqlite 'delete from moz_favicons;'
+%
+ImageMagick: 将 pdf 矢量图形转换为 png 图片
+	$ convert -antialias -density 120 -trim file.pdf file.png
+%
+Kernel: 减少swap的使用，多用内存，从而达到提速的目的：
+	$ cat "vm.swappiness=30" >> /etc/sysctl.conf
+%
+Nmap扫描网段:
+    $ nmap -v -sP 192.168.0.0/24
+%
+Scp 续传：
+    alias rscp="rsync -v -v -P -e ssh"
+%
+Simple email address encode:
+    $ echo -n "ZndvbGZjbkBnbWFpbC5jb20K" | base64 -d
+%
+Sqlite 整理优化数据库文件:
+    $ sqlite3 places.sqlite 'VACUUM;'
+%
+Sqlite 优化Firefox数据文件：
+	$ for f in ~/.mozilla/firefox/*/*.sqlite; do sqlite3 $f 'VACUUM;'; done
+%
+su 成 root 后，环境变量以及路径等都还使用原用户的。
+su - 可以解决问题，直接切换到 root 目录下，环境变量也一并切换。
+    - <http://www.leakon.com/archives/555>
+%
+Tree 生成目录树（html版）
+	$ tree -sh --dirsfirst --charset utf-8 -T "HDD f001" -H /media/f001 /media/f001 > hdd-f001.html
+%
+URxvt 复制当前屏幕内容：Alt+s 输入正则, 上下选择, Shift+Enter 复制, Shift+Insert粘贴.
+%
+Wget 镜像网站：
+    $ wget -mpc -w 1 -Y off -nH -np http://www.google.com
+		-c 续传，-m 是镜像，-p 是下载媒体文件，比如图片，
+        -w 1 两次下载之间等待 1 秒，-Y off 不使用代理，
+        -nH 不创建以目标主机域名为目录名的目录，直接从当前目录开始，
+        -np 只下载目标站点指定目录及其子目录的内容。
+%
+按格式打印以前某天的日期：
+    $ date +%Y-%m-%d -d now-100day
+%
+查看 tcp 连接各状态的数量：
+    $ netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+%
+查看远程服务器上的控制台输出：
+    # cat /dev/vcs1
+%
+批量查找替换文件中的字符串:
+    $ grep logo.gif * -R | awk '{print $1}' | sed 's/://' | xargs -I '{}' sed -i 's/logo.gif/logo.jpg/' '{}'
+%
+取 history（命令历史）中频率最高的指令：
+    $ history|awk '{a[$2]++} END{for(i in a){printf "%5d\t%s\n",a[i],i}}'|sort -rn|head
+    - http://www.yining.org/2008/04/13/whats-in-my-history/
+%
+取 history（命令历史）中频率最高的指令（改进版）：
+    $ history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
+    - http://avenger.name/blog/whats-in-my-history/
+%
+取当前的使用的 shell 名称：
+    $ echo $0
+%
