@@ -5,6 +5,8 @@ balsa - 支持 maildir 的图形化客户端
 %
 cloc - 代码行数统计工具，识别注释和空行
 %
+dstat - 包含 tip, free, iostat, vmstat, netstat 的全能系统监控工具
+%
 EverEdit - 专为中国人设计的顶级纯文本编辑器
 http://cn.everedit.net/
 %
