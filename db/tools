@@ -17,6 +17,8 @@ Gwenview - Kde 中查看 Gif 动画的工具。
 %
 iptraf - 监控网络流量。
 %
+Mosh - 更适用与移动网络/差网络的 SSH 工具，过防火墙时要求墙内外端口号必须一致
+%
 mtr - 整和了 ping 和 traceroute 的网络诊断工具。
 %
 ncdu - 查看文件空间占用的实用小工具。
