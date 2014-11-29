@@ -1,0 +1,4 @@
+%
+Skip replication error
+    SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 1; stop slave; start slave;
+%
