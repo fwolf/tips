@@ -29,3 +29,6 @@ retext - reStructuredText 可视化编写工具。
 %
 ttyload - 终端下用彩色字符组成图表显示系统负载情况。
 %
+xpstopdf - 转换xps文件格式为pdf格式
+    aptitude install libgxps-utils
+%
