@@ -12,6 +12,9 @@ ImageMagick: 将 pdf 矢量图形转换为 png 图片
 Kernel: 减少swap的使用，多用内存，从而达到提速的目的：
 	$ cat "vm.swappiness=30" >> /etc/sysctl.conf
 %
+nc 测试端口是否开放：
+    nc -z -w 5 baidu.com 80 && echo ok || echo fail
+%
 Nmap扫描网段:
     $ nmap -v -sP 192.168.0.0/24
 %
